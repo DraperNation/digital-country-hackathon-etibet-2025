@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbe5df;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Profile Section */
+.profile-card {
+    background: #6b4423;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid #f3cc84;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.mentor {
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* Training Sessions */
+.training-sessions {
+    background: #6b4423;
+    color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Video List */
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Each Video Row */
+.video-item {
+    display: flex;
+    align-items: center;
+    background: black;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Smaller Video Thumbnail */
+.video-thumb {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Video Info */
+.video-info h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.video-info p {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Modal Video Popup */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}

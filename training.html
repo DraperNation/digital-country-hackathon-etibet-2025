@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Training Portal</title>
+    <link rel="stylesheet" href="training.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .profile-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .training-sessions {
+            background: brown;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .video-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .video-thumb {
+            width: 100px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .video-info {
+            flex: 1;
+            color: #007bff;
+        }
+        .vote-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .vote-btn:hover {
+            background: #0056b3;
+        }
+        .vote-section {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #eee;
+            border-radius: 5px;
+        }
+        .video-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .video-container video {
+            width: 400px;
+            height: 220px;
+        }
+        p {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <img src="tchr img.jpeg.jpg" alt="Teacher Profile" class="profile-pic">
+            <div class="profile-info">
+                <p><strong>Name:</strong> ABC</p>
+                <p><strong>Email:</strong> abc@gmail.com</p>
+                <p><strong>ID:</strong> XYZ</p>
+                <p class="mentor">Digital Voting</p>
+            </div>
+        </div>
+
+        <!-- Training Sessions -->
+        <div class="training-sessions">
+            <h2>TRAINING SESSIONS</h2>
+
+            <div class="video-list">
+                <!-- Video 1 -->
+                <div class="video-item">
+                    <video class="video-thumb" src="yt1z.net - Frankly Speaking With Rahul Gandhi - Full Interview Arnab Goswami Exclusive Interview (480p).mp4" controls></video>
+                    <div class="video-info">
+                        <h3>Recording Session 1</h3>
+                        <p>Introduction to effective teaching techniques.</p>
+                        <button class="vote-btn" onclick="showVoteSection(1)">Vote</button>
+                    </div>
+                </div>
+                <div id="vote-section-1" class="vote-section">
+                    <p>Did you find this session helpful?</p>
+                    <button onclick="vote(1)">👍 Yes</button>
+                    <span id="vote-count-1">0</span> votes
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-item">
+                    <video class="video-thumb" src="yt1z.net - Frankly Speaking With Rahul Gandhi - Full Interview Arnab Goswami Exclusive Interview (480p).mp4" controls></video>
+                    <div class="video-info">
+                        <h3>Recording Session 2</h3>
+                        <p>How to use digital tools for online learning.</p>
+                        <button class="vote-btn" onclick="showVoteSection(2)">Vote</button>
+                    </div>
+                </div>
+                <div id="vote-section-2" class="vote-section">
+                    <p>Did you find this session helpful?</p>
+                    <button onclick="vote(2)">👍 Yes</button>
+                    <span id="vote-count-2">0</span> votes
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-item">
+                    <video class="video-thumb" src="yt1z.net - Frankly Speaking With Rahul Gandhi - Full Interview Arnab Goswami Exclusive Interview (480p).mp4" controls></video>
+                    <div class="video-info">
+                        <h3>Recording Session 3</h3>
+                        <p>Advanced teaching strategies to enhance engagement.</p>
+                        <button class="vote-btn" onclick="showVoteSection(3)">Vote</button>
+                    </div>
+                </div>
+                <div id="vote-section-3" class="vote-section">
+                    <p>Did you find this session helpful?</p>
+                    <button onclick="vote(3)">👍 Yes</button>
+                    <span id="vote-count-3">0</span> votes
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store vote counts in an object
+        let votes = { 1: 0, 2: 0, 3: 0 };
+
+        // Function to show vote section
+        function showVoteSection(videoId) {
+            document.getElementById(`vote-section-${videoId}`).style.display = "block";
+        }
+
+        // Function to handle voting
+        function vote(videoId) {
+            votes[videoId]++;
+            document.getElementById(`vote-count-${videoId}`).textContent = votes[videoId];
+        }
+    </script>
+
+</body>
+</html>

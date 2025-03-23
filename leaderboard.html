@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>Voting Leaderboard</h2>
+        <div class="top-teachers">
+            <div class="teacher first">
+                <img src="prof1.jpeg.jpg" class="badge" alt="Gold Badge">
+                <h3>1. Mr. Rajesh</h3>
+                <p>⭐ Best Performance</p>
+
+                <div class="sparkle sparkle1"></div>
+               <div class="sparkle sparkle2"></div>
+               <div class="sparkle sparkle3"></div>
+
+            </div>
+            <div class="teacher second">
+                <img src="tchr img.jpeg.jpg" class="badge" alt="Silver Badge">
+                <h3>2. Ms. Priya</h3>
+                <p>🔥 Great Progress</p>
+            </div>
+            <div class="teacher third">
+                <img src="prof2.jpeg.jpg" class="badge" alt="Bronze Badge">
+                <h3>3. Mr. Anil</h3>
+                <p>Great work</p>
+            </div>
+        </div>
+
+        <h2>📊Condidates Percentage</h2>
+        <div class="teacher-list">
+            <div class="teacher-item">
+                <h4>📌 Mr. Rajesh</h4>
+                <p>Score: <span class="score">92%</span></p>
+            </div>
+            <div class="teacher-item">
+                <h4>📌 Ms. Priya</h4>
+                <p>Score: <span class="score">89%</span></p>
+            </div>
+            
+        
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Teacher Dashboard Loaded!");
+
+            // Highlight Top Performer Animation
+            const topTeacher = document.querySelector(".second");
+            setInterval(() => {
+                topTeacher.style.transform = "scale(1.2)";
+                setTimeout(() => {
+                    topTeacher.style.transform = "scale(1)";
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

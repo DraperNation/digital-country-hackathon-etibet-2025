@@ -1,0 +1,80 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #E3EFE6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login Container */
+.login-container {
+    width: 90%;
+    max-width: 350px;
+    background-color: #4d2600; /* Brown background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+/* Headings */
+h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffcc66;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #f8d49d;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
