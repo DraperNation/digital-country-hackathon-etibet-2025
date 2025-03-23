@@ -1,0 +1,84 @@
+<%- include('../layout', { title: 'Citizen Dashboard', content: `
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h2>👋 Welcome, Bryana</h2>
+    </header>
+
+    <section class="dashboard-section">
+      <div class="dashboard-card">
+        <h3>🌍 Your Digital Identity</h3>
+        <p>Manage your decentralized identity and credentials.</p>
+        <a id="did-view" class="btn-primary">View DID</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>📜 Digital Passport & Credentials</h3>
+        <p>Access verifiable digital passports and education certificates.</p>
+        <a id="credentials-view" class="btn-primary">View Credentials</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>⭐ Reputation & Proof-of-Personhood</h3>
+        <p>Earn reputation for contributions and access better opportunities.</p>
+        <a id="reputation-view" class="btn-primary">Check Reputation</a>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>✅ Secure Document Verification</h3>
+        <p>Allow NGOs and embassies to verify your credentials securely.</p>
+        <a id="verification-request" class="btn-primary">Request Verification</a>
+      </div>
+    </section>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('userId');
+    sessionStorage.setItem('userId', userId)
+    document.getElementById("did-view").href = "/did/view?userId=" + userId
+    document.getElementById("credentials-view").href = "/credentials/view?userId=" + userId
+    document.getElementById("reputation-view").href = "/reputation/view?userId=" + userId
+    document.getElementById("verification-request").href = "/verification/request?userId=" + userId
+  </script>
+
+  <style>
+    .dashboard-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .dashboard-card {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+  </style>
+` }) %>

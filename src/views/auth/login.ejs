@@ -1,0 +1,195 @@
+<%- include('../layout', { title: 'Login', content: `
+  <div class="login-container">
+    <div class="login-card">
+      <h2>🔐 Citizen Login</h2>
+
+      <form action="/auth/login" method="POST" class="login-form">
+        <div class="input-group">
+          <input type="text" name="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn-submit">🚀 Login</button>
+      </form>
+
+      <p class="register-link">New here? <a href="/auth/signup">Create an Account</a></p>
+
+      <div class="biometric-section">
+        <p>Or use passwordless login:</p>
+        <button class="btn-biometric" onclick="openBiometricModal()">🔎 Login with Biometrics</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biometric Modal -->
+  <div id="biometric-modal" class="modal">
+    <div class="modal-content">
+      <h3>🔒 Biometric Authentication</h3>
+      <p>Select a method:</p>
+      <button onclick="authenticateFingerprint()">🖐️ Use Fingerprint</button>
+      <button onclick="authenticateFace()">📷 Use Face Detection</button>
+      <button onclick="closeModal()">❌ Cancel</button>
+    </div>
+  </div>
+
+  <style>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .btn-submit {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .btn-submit:hover {
+      background: #0056b3;
+    }
+
+    .register-link {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .biometric-section {
+      margin-top: 20px;
+    }
+
+    .btn-biometric {
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-biometric:hover {
+      background: #218838;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    .modal-content button {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+    }
+
+    .modal-content button:first-child {
+      background: #28a745;
+      color: white;
+    }
+
+    .modal-content button:nth-child(2) {
+      background: #007bff;
+      color: white;
+    }
+
+    .modal-content button:last-child {
+      background: #dc3545;
+      color: white;
+    }
+  </style>
+
+  <script>
+    function openBiometricModal() {
+      document.getElementById("biometric-modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("biometric-modal").style.display = "none";
+    }
+
+    async function authenticateFingerprint() {
+      if (!window.PublicKeyCredential) {
+        alert("Fingerprint authentication is not supported in this browser.");
+        return;
+      }
+
+      try {
+        const credential = await navigator.credentials.get({
+          publicKey: {
+            challenge: new Uint8Array(32), 
+            timeout: 60000,
+            userVerification: "required"
+          }
+        });
+
+        alert("✅ Fingerprint authentication successful!");
+        closeModal();
+        window.location.href = "/dashboard";
+      } catch (error) {
+        console.error("Fingerprint authentication failed:", error);
+        alert("❌ Fingerprint authentication failed. Try again.");
+      }
+    }
+
+    function authenticateFace() {
+      alert("📷 Face authentication feature coming soon! Stay tuned.");
+    }
+  </script>
+` }) %>

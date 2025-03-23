@@ -1,0 +1,188 @@
+<%- include('../layout', { title: 'Secure Document Verification', content: `
+  <div class="verification-container">
+    <h2>🔍 Secure Document Verification</h2>
+    <p>Allow NGOs and embassies to verify your credentials securely.</p>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button onclick="showSection('view-documents')">📄 View Digital Documents</button>
+      <button onclick="showSection('request-approval')">✅ Request Digital Approval</button>
+      <button onclick="showSection('application-status')">📊 View Application Status</button>
+      <button onclick="showSection('request-new-document')">📜 Request a New Document</button>
+    </div>
+
+    <!-- View Digital Documents Section -->
+    <div id="view-documents" class="hidden section">
+      <h3>📄 Your Digital Documents</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Document Name</th>
+            <th>Date Uploaded</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Refugee Certificate</td>
+            <td>March 10, 2025</td>
+            <td><a href="#">🔍 View</a></td>
+          </tr>
+          <tr>
+            <td>Education Certificate</td>
+            <td>Feb 25, 2025</td>
+            <td><a href="#">🔍 View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Request Digital Approval Section -->
+    <div id="request-approval" class="hidden section">
+      <h3>✅ Request Digital Approval</h3>
+      <p>Upload a document for verification.</p>
+      <form action="/approval/request" method="POST" enctype="multipart/form-data">
+        <label>Upload your document:</label>
+        <input type="file" required>
+        <br><br>
+        <button type="submit">Request Approval</button>
+      </form>
+    </div>
+
+    <!-- View Application Status Section -->
+    <div id="application-status" class="hidden section">
+      <h3>📊 View Application Status</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>Date Submitted</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Work Permit</td>
+            <td>March 5, 2025</td>
+            <td><span class="pending">⏳ Pending</span></td>
+          </tr>
+          <tr>
+            <td>Travel Visa</td>
+            <td>Feb 28, 2025</td>
+            <td><span class="approved">✅ Approved</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Request a New Document Section -->
+    <div id="request-new-document" class="hidden section">
+      <h3>📜 Request a New Document</h3>
+      <form action="/documents/request" method="POST">
+        <label>Full Name:</label>
+        <input type="text" name="fullName" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label>Nationality:</label>
+        <input type="text" name="nationality" value="Tibet" readonly>
+
+        <label>Type of Document:</label>
+        <select name="documentType">
+          <option value="passport">Digital Passport</option>
+          <option value="residency">Residency Certificate</option>
+          <option value="education">Education Certificate</option>
+          <option value="work">Work Permit</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .verification-container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 20px auto;
+      border: 3px solid #007bff;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .section {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      background: #f8f9fa;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+    }
+
+    .pending {
+      color: orange;
+    }
+
+    .approved {
+      color: green;
+    }
+  </style>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+  </script>
+` }) %>

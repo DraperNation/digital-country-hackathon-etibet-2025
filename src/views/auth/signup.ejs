@@ -1,0 +1,206 @@
+<%- include('../layout', { title: 'Signup', content: `
+  <div class="signup-container">
+    <div class="signup-card">
+      <h2>📝 Citizen Registration</h2>
+
+      <form action="/auth/signup" method="POST" class="signup-form" enctype="multipart/form-data" id="signUpForm">
+        <div class="input-group">
+          <input type="text" name="displayName" placeholder="First Name" required>
+          <input type="text" name="surname" placeholder="Last Name" required>
+        </div>
+
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="input-group">
+          <select name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input type="text" name="nationality" value="Tibet" readonly>
+        </div>
+
+        <div class="input-group">
+          <input type="date" name="dateOfBirth" placeholder="Date of Birth" required>
+        </div>
+
+        <h3>📜 Identity Details</h3>
+        <div class="input-group">
+          <input type="text" name="nameOfFather" placeholder="Father's Name" required>
+          <input type="text" name="nameOfMother" placeholder="Mother's Name" required>
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="nameOfSpouse" placeholder="Spouse Name (if any)">
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="address" placeholder="Street Address" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
+
+        <h3>📸 Upload Profile Picture</h3>
+        <input type="file" name="profileImage" accept="image/*" required>
+
+        <h3>🆔 Upload Identity Document</h3>
+        <input type="file" name="idDocument" accept="application/pdf,image/*" required>
+
+        <h3>🖐️ Capture Biometrics</h3>
+        <div class="biometric-options">
+          <button type="button" onclick="registerFingerprint()">🖐️ Register Fingerprint</button>
+          <button type="button" onclick="captureFace()">📸 Face Scan</button>
+        </div>
+        <input type="hidden" name="biometricData" id="biometricData">
+
+        <button type="submit" class="btn-submit">🚀 Register</button>
+      </form>
+
+      <video id="cameraFeed" class="hidden" autoplay></video>
+      <canvas id="capturedImage" class="hidden"></canvas>
+    </div>
+  </div>
+
+  <style>
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+
+    .signup-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-group input, .input-group select {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .btn-submit {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .btn-submit:hover {
+      background: #0056b3;
+    }
+
+    .biometric-options {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    video {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <script>
+    // WebAuthn Fingerprint Registration
+    async function registerFingerprint() {
+      if (!window.PublicKeyCredential) {
+        alert("WebAuthn is not supported in your browser.");
+        return;
+      }
+
+      try {
+        const credential = await navigator.credentials.create({
+          publicKey: {
+            challenge: new Uint8Array(32), // Random challenge
+            rp: { name: "E-Tibet ID" },
+            user: { id: new Uint8Array(16), name: "user@example.com", displayName: "User" },
+            pubKeyCredParams: [{ type: "public-key", alg: -7 }], // ES256
+            authenticatorSelection: { authenticatorAttachment: "platform", userVerification: "required" },
+            timeout: 60000
+          }
+        });
+
+        document.getElementById("biometricData").value = JSON.stringify(credential);
+        alert("Fingerprint registered successfully! ✅");
+      } catch (error) {
+        console.error("Fingerprint registration failed:", error);
+        alert("Failed to register fingerprint. ❌");
+      }
+    }
+
+    // Camera Face Capture
+    function captureFace() {
+      const video = document.getElementById("cameraFeed");
+      const canvas = document.getElementById("capturedImage");
+      const context = canvas.getContext("2d");
+
+      video.classList.remove("hidden");
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+          setTimeout(() => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            document.getElementById("biometricData").value = canvas.toDataURL();
+            video.srcObject.getTracks().forEach(track => track.stop());
+            video.classList.add("hidden");
+            alert("Face scan captured! ✅");
+          }, 3000);
+        })
+        .catch(error => console.error("Camera access denied:", error));
+    }
+
+    document.getElementById("signUpForm").addEventListener("submit", async function (event) {
+      event.preventDefault(); // Prevent default form submission
+      const formData = new FormData(event.target);
+
+      const data = Object.fromEntries(formData.entries()); // Convert to JSON object
+      console.log("Submitted Data:", data);
+
+      const response = await fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      console.log(result);
+    });
+  </script>
+` }) %>

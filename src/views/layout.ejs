@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+
+    <main class="container">
+      <div id="content">
+        <%- content %>
+        <!-- This will render dynamic content -->
+      </div>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
+  <!-- <script>
+    document.getElementById('dashboard-view-nav').href =
+      '/user/dashboard?userId=' + userId;
+    document.getElementById('did-view-nav').href = '/did/view?userId=' + userId;
+    document.getElementById('credentials-view-nav').href =
+      '/credentials/view?userId=' + userId;
+    document.getElementById('reputation-view-nav').href =
+      '/reputation/view?userId=' + userId;
+    document.getElementById('verification-request-nav').href =
+      '/verification/request?userId=' + userId;
+  </script> -->
+</html>
