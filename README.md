@@ -1,61 +1,106 @@
-# Digital Country Hackathon: Building a Digital Tibet
 
-The E-Tibet Hackathon is an innovative event designed to develop digital solutions that address the challenges faced by Tibetan refugees. With 80% of government services now deliverable digitally, this hackathon advocates for borderless digital nations. Co-sponsored by [Draper Nation](https://drapernation.com), [Nishith Desai Associates](https://www.nishithdesai.com), and [OG Club DAO](https://ogclubdao.com), it provides participants the opportunity to explore solutions across five key tracks.
+# 🗳️ e-Voice Voting
 
-- **Date**: 22-23rd March 2025
-- **Location**: [Draper Startup House Bangalore](https://draperstartuphouse.com/bangalore), India 🇮🇳 ([Google Maps](https://maps.app.goo.gl/4DJxza88WFr9KY6s7))
+**e-Voice Voting** is a citizen-centric digital platform that enables communities to engage in local governance by raising issues, voting on them, and tracking real-time outcomes. It bridges the communication gap between citizens and authorities, ensuring transparency, inclusivity, and actionable feedback.
 
-Official Website: [etibet.co](https://etibet.co)
+---
 
-## Tracks
+## 📌 Project Description
 
-- **Citizenship:** Digital identities, proof-of-personhood, and reputation systems
-- **Governance:** Administrative functions and digital voting
-- **Benefits & Services:** Healthcare, education, employment, and pensions
-- **Finance:** Digital currencies, taxation, and sovereign wealth management
-- **Cultural Heritage Preservation:** AI-powered archives and digital storytelling platforms
+In many regions, citizens struggle to make their voices heard regarding local issues due to lack of proper infrastructure or communication channels. **e-Voice Voting** solves this by offering a streamlined, digital way to report problems and vote on them, empowering communities and assisting authorities in prioritizing public concerns.
 
-## Prizes
+---
 
-- **1st Place:** 3 free nights at Draper Startup House (DSH) Bangalore
-- **2nd Place:** 2 free nights at DSH Bangalore
-- **3rd Place:** 1 free night at DSH Bangalore
-- **Bonus:** All teams presenting on March 23 receive a 25% discount on DSH accommodations
+## 💡 Problem Statement
 
-## Teams & Mentorship
+Despite the growing use of technology, there is still no proper digital mechanism for:
+- Reporting public issues like potholes, sanitation, street lights, water, etc.
+- Allowing citizens to collectively vote on the importance of these problems.
+- Helping officials make data-driven, democratic decisions based on real needs.
 
-Teams can range from solo participants to groups of up to five. Requirements:
+---
 
-- At least one team member must be physically present in Bangalore
-- Each team requires a designated member with GitHub repository access
-- Mentors will be available throughout the hackathon to provide guidance
+## ✅ Solution
 
-## Workshops & Sessions
+**e-Voice Voting** enables:
+- 📱 Citizens to report and upvote/downvote local issues.
+- 📊 Real-time vote count and analytics.
+- 🔐 An admin dashboard for local officials to track and address high-priority problems.
 
-Participants will gain valuable insights from industry experts:
+This promotes:
+- Participatory governance  
+- Transparency in issue resolution  
+- Community-driven development
 
-- [Vikram Bharati](https://www.linkedin.com/in/vikrambharati): "How to think about an idea for a startup"
-- [Haimantika Mitra](https://www.linkedin.com/in/haimantika-mitra): "Leveraging AI for enhanced efficiency and better output"
-- [Aditya Oberai](https://www.linkedin.com/in/adityaoberai1): "Benefits of active contribution to GitHub and developer forums"
+---
 
-## Submission Guidelines
+## 🚀 Core Features
 
-Teams must submit their work to this GitHub repository by **9AM on March 23**.
+- 📝 **Issue Submission**: Citizens can easily post local issues using a simple form.  
+- 👍 **Voting System**: Users can upvote/downvote based on priority.  
+- 🔍 **Live Updates**: Vote counts and issue visibility update in real-time.  
+- 🛠️ **Admin Dashboard**: Admins can manage, sort, and take action on reported issues.  
+- 📂 **Categorization**: Issues are grouped under tags (e.g., Roads, Water, Electricity).  
+- 🔔 **Notification Option** *(optional)*: Alerts users when their issue is addressed.
 
-Code needs to be submitted through a Pull Request on this repo.
+---
 
-The PR should contain a folder with your team codename.
+## 🧰 Tech Stack (Example)
 
-The folder needs to have a README on how to run and understand your project alongside the full code of your project.
+- **Frontend**: HTML, CSS, JavaScript / React / Flutter (based on actual implementation)  
+- **Backend**: Node.js / Python Flask / Firebase  
+- **Database**: Firebase Realtime DB / MongoDB / SQL  
+- **Authentication**: Firebase Auth / Google OAuth (if applicable)
 
-## Deliverables & Judging
+---
 
-- Problem Statement
-- Solution Overview
-- Tech Stack
+## 🔄 Workflow
 
-Judging will occur in two rounds, with top teams advancing to the final presentation. Winning teams will showcase strong proof of concept through working code or viable prototypes.
+1. **Citizen logs in / accesses platform**  
+2. **Reports an issue or votes on existing ones**  
+3. **Votes are tallied in real-time**  
+4. **Admin panel displays priority-wise issues**  
+5. **Authorities can take action based on collective voting**
 
-## License
+---
 
-By participating in the E-Tibet hackathon, you agree to open-source your code submissions under the Creative Commons Attribution-ShareAlike 4.0 International license.
+## 🎯 Impact
+
+- Enhances civic engagement  
+- Encourages transparency in local governance  
+- Ensures real needs are heard and addressed  
+- Reduces manual complaint systems and bottlenecks
+
+---
+
+## 🔮 Future Scope
+
+- 📲 Mobile App with GPS tagging for issue location  
+- 🌐 Multilingual support for wider adoption  
+- 🧠 AI-based categorization and auto-prioritization  
+- 🗃️ Data dashboards for government insights  
+- 🔐 Role-based access and stronger security measures  
+- 📥 Offline data sync for low-connectivity areas
+
+---
+
+## 📎 Conclusion
+
+**e-Voice Voting** is more than a complaint platform—it's a democratic tool that empowers every citizen to contribute to their community's development. It makes governance more accessible, participatory, and effective.
+
+---
+
+## 🏆 Hackathon Experience - Draper Nation x eTibet
+
+We proudly built **e-Voice Voting** during the [**Draper Nation x eTibet Hackathon**](https://draper-nation.gitbook.io/etibet) as part of **Team Titus**. This global event brought together forward-thinking minds to design blockchain-inspired solutions for public good.
+
+👥 **Team Name**: Titus  
+🌍 **Event**: Draper Nation x eTibet Hackathon  
+💡 **Theme Focus**: Public participation, digital governance, voice-based systems
+
+It was a collaborative and high-energy experience where we:
+- Ideated solutions to strengthen democracy through decentralized tools  
+- Explored innovative governance models that could apply to regions like Tibet  
+- Built a working prototype of *e-Voice Voting* with scalability and transparency in mind
+
+We were thrilled to contribute to a hackathon that aligned perfectly with our mission—amplifying community voices and making civic systems smarter.
