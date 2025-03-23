@@ -1,61 +1,170 @@
-# Digital Country Hackathon: Building a Digital Tibet
+# E-Tibet Identity & Citizenship App 🚀
 
-The E-Tibet Hackathon is an innovative event designed to develop digital solutions that address the challenges faced by Tibetan refugees. With 80% of government services now deliverable digitally, this hackathon advocates for borderless digital nations. Co-sponsored by [Draper Nation](https://drapernation.com), [Nishith Desai Associates](https://www.nishithdesai.com), and [OG Club DAO](https://ogclubdao.com), it provides participants the opportunity to explore solutions across five key tracks.
+## Overview
 
-- **Date**: 22-23rd March 2025
-- **Location**: [Draper Startup House Bangalore](https://draperstartuphouse.com/bangalore), India 🇮🇳 ([Google Maps](https://maps.app.goo.gl/4DJxza88WFr9KY6s7))
+The **E-Tibet Identity & Citizenship App** is a decentralized digital identity and reputation system for Tibetans worldwide. It enables users to securely prove personhood, access verifiable credentials, and build social credibility through blockchain-based attestations.
 
-Official Website: [etibet.co](https://etibet.co)
+## Team Members
 
-## Tracks
+Kiran Sukumaran - [GitHub](https://github.com/Kiransukumaran), [LinkedIn](https://linkedin.com/in/kiran-sukumaran)
+Vinod Kongadi - [LinkedIn](https://www.linkedin.com/in/vinodkongadi)
+Yash V - [LinkedIn](https://www.linkedin.com/in/yash-v-/)
 
-- **Citizenship:** Digital identities, proof-of-personhood, and reputation systems
-- **Governance:** Administrative functions and digital voting
-- **Benefits & Services:** Healthcare, education, employment, and pensions
-- **Finance:** Digital currencies, taxation, and sovereign wealth management
-- **Cultural Heritage Preservation:** AI-powered archives and digital storytelling platforms
+## Pictch Dock
 
-## Prizes
+[Pitch](https://gamma.app/docs/E-Tibet-Ver-11-gc3n91y8ny05ol5)
 
-- **1st Place:** 3 free nights at Draper Startup House (DSH) Bangalore
-- **2nd Place:** 2 free nights at DSH Bangalore
-- **3rd Place:** 1 free night at DSH Bangalore
-- **Bonus:** All teams presenting on March 23 receive a 25% discount on DSH accommodations
+## Features
 
-## Teams & Mentorship
+### 1️⃣ Decentralized Digital Identity (DID) & Passport
 
-Teams can range from solo participants to groups of up to five. Requirements:
+- Users create **Self-Sovereign Identity (SSI)** stored on a decentralized ledger.
+- Generates a **Tibetan Digital Passport** for stateless individuals.
+- Issues **verifiable credentials** (ID, education, skills).
+- **Biometric authentication** (Face & Fingerprint) for enhanced security.
 
-- At least one team member must be physically present in Bangalore
-- Each team requires a designated member with GitHub repository access
-- Mentors will be available throughout the hackathon to provide guidance
+### 2️⃣ Proof-of-Personhood (PoP) & Reputation System
 
-## Workshops & Sessions
+- Identity verification through:
+  - **AI-powered facial recognition** & government-issued documents.
+  - **Web3-based proof** (Soulbound Tokens & zkProofs).
+- Users **earn reputation points** for verified contributions (e.g., community work, activism).
+- Reputation score unlocks **scholarships, job opportunities, and aid**.
 
-Participants will gain valuable insights from industry experts:
+### 3️⃣ Secure Identity Verification & Document Storage
 
-- [Vikram Bharati](https://www.linkedin.com/in/vikrambharati): "How to think about an idea for a startup"
-- [Haimantika Mitra](https://www.linkedin.com/in/haimantika-mitra): "Leveraging AI for enhanced efficiency and better output"
-- [Aditya Oberai](https://www.linkedin.com/in/adityaoberai1): "Benefits of active contribution to GitHub and developer forums"
+- AI-powered **OCR scanning** for document verification.
+- Secure credential storage using **IPFS/Filecoin**.
+- Identity protection using **Zero-Knowledge Proofs (zkProofs)**.
 
-## Submission Guidelines
+### 4️⃣ Smart Contract-Based Trust System
 
-Teams must submit their work to this GitHub repository by **9AM on March 23**.
+- Ethereum/Solana-based **smart contracts** validate user actions.
+- Organizations (NGOs, Schools, Employers) issue **verifiable attestations**.
+- **Web3 dApp integration** allows users to prove identity & credibility.
 
-Code needs to be submitted through a Pull Request on this repo.
+---
 
-The PR should contain a folder with your team codename.
+## Tech Stack
 
-The folder needs to have a README on how to run and understand your project alongside the full code of your project.
+### **Frontend**
 
-## Deliverables & Judging
+- **EJS** (for templating pages)
 
-- Problem Statement
-- Solution Overview
-- Tech Stack
+### **Backend**
 
-Judging will occur in two rounds, with top teams advancing to the final presentation. Winning teams will showcase strong proof of concept through working code or viable prototypes.
+- **Express.js** (REST API for identity management)
+- **Firebase Auth** (User authentication)
+- **Supabase** (Alternative backend storage)
+
+### **Blockchain & Identity Storage**
+
+- **Polygon ID** (for issuing DIDs)
+- **Ethereum/Solana** (for smart contracts & verifiable credentials)
+- **IPFS/Filecoin** (for decentralized document storage)
+
+### **AI/ML**
+
+- **Facial Recognition** (for biometric identity verification)
+- **OCR (Optical Character Recognition)** (for document verification)
+
+### **Smart Contracts**
+
+- **Solidity/Rust** (for trust-based reputation system & verifiable credentials)
+
+---
+
+## Use Case Examples
+
+### **1️⃣ User Onboarding**
+
+- Registers using **biometrics & ID scan**.
+- A **DID (Decentralized Identity)** is created.
+
+### **2️⃣ Digital Passport & Credentials**
+
+- Refugees receive a **verifiable Tibetan digital passport**.
+- Schools issue **education certificates as NFTs/SBTs**.
+
+### **3️⃣ Reputation & Proof-of-Personhood**
+
+- Users earn **reputation points** for verified contributions (volunteering, activism, skills).
+- Reputation unlocks **jobs, funding, and legal support**.
+
+### **4️⃣ Secure Document Verification**
+
+- NGOs and embassies **instantly verify identities**.
+- Users control **who accesses their credentials** (Privacy-first approach).
+
+---
+
+## Deployment Guide
+
+### **1️⃣ Setup the Project**
+
+```sh
+git clone https://github.com/your-repo/e-tibet-identity.git
+cd e-tibet-identity
+npm install
+```
+
+### **2️⃣ Configure Environment Variables**
+
+Create a `.env` file and add:
+
+```sh
+INFURA_API_KEY=your_infura_key
+PRIVATE_KEY=your_metamask_private_key
+FIREBASE_CONFIG=your_firebase_config
+```
+
+### **3️⃣ Deploy Smart Contracts on Polygon Mumbai**
+
+```sh
+npx hardhat compile
+npx hardhat run scripts/deploy.js --network mumbai
+```
+
+### **4️⃣ Start Backend Server**
+
+```sh
+node server.js
+```
+
+### **5️⃣ Run Frontend**
+
+```sh
+npm run dev
+```
+
+---
+
+## Why This is a Game-Changer? 🚀
+
+✅ **Solves identity & statelessness issues for Tibetans.**  
+✅ **Provides trust & reputation in a Web3-native way.**  
+✅ **Uses decentralized storage & AI for security & privacy.**  
+✅ **Enables the Tibetan diaspora to prove credentials globally.**
+
+---
+
+## Contribution
+
+Want to contribute? Follow our [Contribution Guide](CONTRIBUTING.md)!
+
+## Author
+
+[@kiransukumaran](https://github.com/Kiransukumaran)
+
+---
 
 ## License
 
-By participating in the E-Tibet hackathon, you agree to open-source your code submissions under the Creative Commons Attribution-ShareAlike 4.0 International license.
+This project is **open-source** under the **MIT License**.
+
+---
+
+## Contact
+
+📧 Email: **contact@etibet.io**  
+🌍 Website: **[www.etibet.io](https://www.etibet.io)**
