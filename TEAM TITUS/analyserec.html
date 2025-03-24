@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Feedback Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbe6e2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 400px;
+            margin: auto;
+            background-color: #6d4c41;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .profile img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .sessions {
+            margin-top: 20px;
+        }
+        .session {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: #543d32;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .session video {
+            width: 100px;
+            height: 70px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .details {
+            margin-left: 15px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .percentage {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile">
+            <img src="tchr img.jpeg.jpg" alt="Profile">
+            <div>
+                <p>Name: Archana Kumari</p>
+                <p>Email: abc@gmail.com</p>
+                <p>ID: XYZ</p>
+            </div>
+        </div>
+
+        <h3>My vote Analysis</h3>
+
+        <div class="sessions">
+            <div class="session">
+                <video onclick="openVideo('C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png')" controls>
+                    <source src="C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png" type="video/mp4">
+                </video>
+                <div class="details">
+                    <p>Work: <span class="percentage">80%</span></p>
+                    <p>Progress: <span class="percentage">60%</span></p>
+                    <p>Implementation: <span class="percentage">60%</span></p>
+                </div>
+            </div>
+
+            <div class="session">
+                <video onclick="openVideo('C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png')" controls>
+                    <source src="C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png" type="video/mp4">
+                </video>
+                <div class="details">
+                    <p>Work : <span class="percentage">70%</span></p>
+                    <p>Progress: <span class="percentage">50%</span></p>
+                    <p>Implementation: <span class="percentage">50%</span></p>
+                </div>
+            </div>
+
+            <div class="session">
+                <video onclick="openVideo('C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png')" controls>
+                    <source src="C:\Users\Dell\Downloads\e-tibet\videoframe_14834.png" type="video/mp4">
+                </video>
+                <div class="details">
+                    <p>Work : <span class="percentage">90%</span></p>
+                    <p>Progress: <span class="percentage">70%</span></p>
+                    <p>Implementation: <span class="percentage">80%</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

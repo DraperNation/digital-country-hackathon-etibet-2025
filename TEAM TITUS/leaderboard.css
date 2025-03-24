@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.dashboard {
+    /* padding: 20px; */
+    width: 90%;
+    max-width: 350px; /* Mobile-friendly width */
+    height: 95vh; /* Full-screen height */
+    padding: 20px;
+    background: #6b4226;
+    color: blue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    width: 400px;
+    margin: auto;
+    background-color: #6b4226;
+    color: blue;
+    padding: 20px;
+    border-radius: 10px;
+}
+    
+
+
+h2 {
+    color: gold;
+}
+
+.top-teachers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* margin-bottom: 10px; */
+   
+}
+
+.teacher {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100px;
+}
+
+.first {
+    border: 3px solid gold;
+}
+
+.second {
+    border: 3px solid silver;
+}
+
+.third {
+    border: 3px solid #cd7f32;
+}
+
+.badge {
+    width: 40px;
+    animation:  3s infinite linear;
+}
+
+@keyframes rotateBadge {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.teacher-list {
+    background: white;
+    padding: 15px;
+    /* border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 200px;
+    max-height: 100px;
+    margin: auto; */
+}
+
+.teacher-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.score {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Cheer & Sparkle Animation */
+@keyframes cheer {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: translateY(10px) scale(0.8); }
+    50% { opacity: 1; transform: translateY(-5px) scale(1); }
+    100% { opacity: 0; transform: translateY(-15px) scale(1.2); }
+}
+
+/* Apply Cheer Effect to Top Performers */
+.top-performer {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+}
+
+.top-performer img {
+    animation: cheer 1.5s infinite ease-in-out;
+}
+
+/* Sparkle Effect */
+.sparkle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: gold;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+/* Positioning Sparkles */
+.sparkle1 { top: -10px; left: 5px; animation-delay: 0s; }
+.sparkle2 { top: 5px; right: -10px; animation-delay: 0.3s; }
+.sparkle3 { bottom: -10px; left: 10px; animation-delay: 0.6s; }
+

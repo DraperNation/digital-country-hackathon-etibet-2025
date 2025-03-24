@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiksha Mentor</title>
+    <link rel="stylesheet" href="proto.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Welcome to 
+                Digital Vote</h2>
+        </header>
+
+        <div class="profile">
+            <img src="tchr img.jpeg.jpg" alt="Profile">
+            <p>Name: Archana Kumari</p>
+            <p>Aadhar: 776655432345</p>
+            <p>District Code: 12br32</p>
+        </div>
+        <div class="tchr-dashboard">
+            <button1 onclick="navigate('leaderboard.html')">View opinions </button>
+        </div>
+
+        <div class="menu">
+            <button onclick="window.location.href='training.html'">View New Policies</button>
+            <button onclick="startRecording()">Share my Vote </button>
+            <button onclick="navigate('analyserec.html')">Check my Votes</button>
+            <button onclick="navigate('mentor.html')"> News and Analysis </button>
+            <!-- <button onclick="navigate('mentor.html')">My Feedbacks</button>
+            <button onclick="navigate('outcome.html')">AI Analysis</button> -->
+        </div>
+
+        <div class="video-container">
+            <video id="videoElement" autoplay></video>
+            <button id="stopBtn" onclick="stopRecording()">Stop Recording</button>
+        </div>
+    </div>
+
+    <script>
+        let stream = null;
+
+        function navigate(page) {
+            window.location.href = page;
+        }
+
+        function startRecording() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((mediaStream) => {
+                    stream = mediaStream;
+                    let video = document.getElementById("videoElement");
+                    video.srcObject = stream;
+                    document.querySelector(".video-container").style.display = "block";
+                })
+                .catch(() => {
+                    alert("Camera access denied!");
+                });
+        }
+
+        function stopRecording() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            document.querySelector(".video-container").style.display = "none";
+        }
+    </script>
+</body>
+</html>
