@@ -1,0 +1,26 @@
+<%- include('../layout', { 
+    title: 'Digital Identity', 
+    did: did,
+    content: `
+     <div class="did-container">
+       <div class="did-card">
+         <h2>🌍 Your Digital Identity</h2>
+         <p><strong>ID:</strong> <span id="did-text" data-did="${did}"></span></p>
+         <button onclick="copyDID()" class="btn-copy">📋 Copy DID</button>
+       </div>
+     </div>
+     
+     <script>
+       document.getElementById('did-text').textContent = document.getElementById('did-text').dataset.did;
+       
+       function copyDID() {
+         const didText = document.getElementById('did-text').textContent;
+         navigator.clipboard.writeText(didText).then(() => {
+           alert('DID copied to clipboard!');
+         });
+       }
+     </script>
+     
+     <style>/* your styles */</style>
+    `
+  }) %>

@@ -1,0 +1,104 @@
+<%- include('../layout', { title: 'Secure Document Verification', content: `
+  <div class="verification-container">
+    <h2>🔍 Secure Document Verification</h2>
+    <p>Allow NGOs and embassies to verify your credentials securely.</p>
+
+    <!-- User Digital Identity Info -->
+    <div class="identity-info">
+      <h3>Identity Details</h3>
+      <p><strong>Name:</strong> Tenzing Norbu</p>
+      <p><strong>DOB:</strong> 15 March 1995</p>
+      <p><strong>Nationality:</strong> Tibet</p>
+      <p><strong>DID:</strong> did:tibet:1234abcd5678</p>
+    </div>
+
+    <!-- Verification Form -->
+    <form action="/verification/check" method="POST">
+      <label for="did">Enter DID:</label>
+      <input type="text" id="did" name="did" placeholder="Enter Decentralized ID" required>
+      <button type="submit">Verify</button>
+    </form>
+
+    <p>OR</p>
+
+    <!-- QR Code Scanner -->
+    <div class="qr-section">
+      <p>📷 Scan the QR Code:</p>
+      <img src="/assets/qrcode.png" alt="QR Code" class="qr-code">
+    </div>
+
+    <!-- Verification Status -->
+    <div class="verification-status">
+      <p><strong>Status:</strong> <span id="verification-result">Pending...</span></p>
+    </div>
+  </div>
+
+  <style>
+    .verification-container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      margin: 20px auto;
+      border: 3px solid #28a745;
+    }
+
+    h2 {
+      color: #28a745;
+    }
+
+    .identity-info {
+      text-align: left;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      padding: 8px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .qr-section {
+      margin-top: 10px;
+    }
+
+    .qr-code {
+      width: 100px;
+      height: 100px;
+    }
+
+    .verification-status {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #dc3545;
+    }
+  </style>
+
+  <script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("verification-result").innerText = "✅ Verified Successfully!";
+      document.getElementById("verification-result").style.color = "green";
+    });
+  </script>
+` }) %>
