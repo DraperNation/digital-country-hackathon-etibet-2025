@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDB - Tibet Digital Bank</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #121417;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c1ec;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+            }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo {
+            margin-bottom: 2rem;
+        }
+        
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(114, 9, 183, 0.5);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(114, 9, 183, 0.3);
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        
+        .login-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: clamp(0.8rem, 3vw, 1rem) clamp(2rem, 5vw, 3rem);
+            border-radius: 50px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4), 0 0 30px rgba(114, 9, 183, 0.2);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 3;
+        }
+        
+        .login-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(114, 9, 183, 0.6), 0 0 40px rgba(114, 9, 183, 0.3);
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+        
+        .login-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 3vw, 2rem);
+            margin-top: 4rem;
+            width: 100%;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(67, 97, 238, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8890a0;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+        
+        /* Web3 decorative elements */
+        .blockchain-decoration {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            opacity: 0.7;
+            box-shadow: 0 0 20px rgba(114, 9, 183, 0.5);
+        }
+        
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .circle-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            opacity: 0.1;
+        }
+        
+        .circle-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            opacity: 0.1;
+        }
+        
+        /* Media Queries for better responsiveness */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .circle-1, .circle-2 {
+                width: 300px;
+                height: 300px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .feature {
+                padding: 1rem;
+            }
+            
+            .footer {
+                position: relative;
+                margin-top: 2rem;
+            }
+        }
+        
+        /* Additional elements for web3 feel */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(67, 97, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(67, 97, 238, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .glow-effect {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            background: radial-gradient(circle, rgba(114, 9, 183, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="grid-overlay"></div>
+    <div class="glow-effect"></div>
+    
+    <div class="circle-decoration circle-1"></div>
+    <div class="circle-decoration circle-2"></div>
+    
+    <div class="container">
+        <div class="logo">
+            <div class="logo-circle">TDB</div>
+        </div>
+        
+        <h1>Tibet Digital Bank</h1>
+        <p>Welcome to the future of banking. Secure, decentralized, and built for the modern digital economy. Experience financial freedom with blockchain-powered solutions.</p>
+        
+        <a href="LoginScreen.html" class="login-btn">Login</a>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure</h3>
+                <p>Enterprise-grade security with distributed ledger technology</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌐</div>
+                <h3>Global</h3>
+                <p>Borderless financial services accessible anywhere</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast</h3>
+                <p>Instant transactions and rapid settlements</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="blockchain-decoration"></div>
+    
+    <div class="footer">
+        © 2025 Tibet Digital Bank | Pioneering Blockchain Banking
+    </div>
+
+    <script>
+        // Create particle effects for Web3 aesthetic
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 40 + 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100 + 50;
+                particle.style.left = `${posX}%`;
+                particle.style.bottom = `${posY}%`;
+                
+                // Random color
+                const colors = ['#4361ee', '#3a0ca3', '#7209b7'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                const delay = Math.random() * 10;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Run on page load
+        window.addEventListener('load', createParticles);
+        
+        // Handle resize events to ensure responsiveness
+        window.addEventListener('resize', function() {
+            // Refresh particles on major size changes
+            const particlesContainer = document.getElementById('particles');
+            if (window.innerWidth < 768 && particlesContainer.children.length > 15) {
+                particlesContainer.innerHTML = '';
+                createParticles();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investments</title>
+    <link rel="stylesheet" href="transactions_style.css">
+    <link rel="stylesheet" href="Dashboard_style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #487eff;
+            --primary-dark: #3865d6;
+            --card-bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-hover: #f2f3f5;
+            --bg-active: #e6f0ff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-tertiary: #888888;
+            --border-color: #e0e0e0;
+            --input-bg: #f8f9fa;
+        }
+
+        /* Dark mode can be added with a class or media query */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h2><i class="fas fa-university"></i> TDC - Tibet Digital Bank</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li >
+                        <a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="Accounts.html"><i class="fas fa-wallet"></i> Accounts</a>
+                    </li>
+                    <li >
+                        <a href="Transfers.html"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                    </li>
+                    <li class="active">
+                        <a href="Investments.html"><i class="fas fa-coins"></i> Investments</a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="Settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="LoginScreen.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="Maddy (2).jpg" alt="User profile">
+                        <span>John Doe</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+        </main>
+        </div>
+</body>
+</html>

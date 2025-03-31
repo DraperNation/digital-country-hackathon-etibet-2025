@@ -1,0 +1,1023 @@
+/* Accounts Page Specific Styles */
+
+/* Accounts Header */
+    .accounts-header { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .accounts-header-button{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .add-account-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-account-btn:hover {
+        background-color: var(--primary-hover);
+    }
+
+    /* Account Groups */
+    .account-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .account-group {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .group-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        background-color: var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .group-header h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .group-header i {
+        color: var(--primary-color);
+    }
+
+    .group-total {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-color);
+    }
+
+    /* Accounts List */
+    .accounts-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .account-item {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        position: relative;
+    }
+
+    .account-item:last-child {
+        border-bottom: none;
+    }
+
+    .account-item:hover {
+        background-color: rgba(0, 0, 0, 0.01);
+    }
+
+    .account-details {
+        display: flex;
+        align-items: center;
+    }
+
+    .account-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
+.account-icon.checking {
+    background-color: var(--info-color);
+}
+
+.account-icon.savings {
+    background-color: var(--success-color);
+}
+
+.account-icon.crypto {
+    background-color: #f7931a;
+}
+
+.account-icon.credit {
+    background-color: var(--primary-color);
+}
+
+.account-info {
+    flex: 2;
+}
+
+.account-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.account-info p {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.account-balance {
+    flex: 1;
+    text-align: right;
+}
+
+.account-balance h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.account-balance p {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.account-balance .change {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.account-balance .change.positive {
+    color: var(--success-color);
+}
+
+.account-balance .change.negative {
+    color: var(--danger-color);
+}
+
+.account-action {
+    margin-left: 16px;
+}
+
+.account-menu-btn {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--light-text);
+    transition: background-color 0.3s ease;
+}
+
+.account-menu-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Account Action Menu */
+.account-action-menu, .linked-action-menu {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease;
+}
+
+.menu-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.menu-item i {
+    color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Account Stats */
+.account-stats {
+    display: flex;
+    margin-top: 16px;
+    padding-left: 68px;
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--light-text);
+    margin-bottom: 2px;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Crypto Assets */
+.account-assets {
+    display: flex;
+    margin-top: 16px;
+    padding-left: 68px;
+    gap: 20px;
+}
+
+.asset-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--secondary-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.asset-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+}
+
+.asset-icon.btc {
+    background-color: #f7931a;
+}
+
+.asset-icon.eth {
+    background-color: #627eea;
+}
+
+.asset-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-details span:first-child {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.asset-details span:last-child {
+    font-size: 13px;
+    color: var(--light-text);
+}
+
+/* Credit Card Specific Styles */
+.credit-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.credit-limit-bar {
+    height: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.credit-used {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.credit-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--light-text);
+}
+
+.credit-due {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.min-payment {
+    font-weight: 500;
+    color: var(--warning-color);
+}
+
+/* Linked Accounts Section */
+.linked-accounts-section {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.link-account-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link-account-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.linked-accounts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.linked-account {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.linked-account:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.linked-account.disconnecting {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.linked-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    margin-right: 16px;
+}
+
+.linked-icon.paypal {
+    background-color: #0070e0;
+}
+
+.linked-details {
+    flex: 1;
+}
+
+.linked-details h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.linked-details p {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.linked-status {
+    margin-right: 16px;
+}
+
+.status-connected {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--success-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-connected::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+}
+
+.status-refreshing {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--info-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.linked-menu-btn {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--light-text);
+    transition: background-color 0.3s ease;
+}
+
+.linked-menu-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--light-text);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* Form Styles for Modals */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.submit-btn:disabled {
+    background-color: var(--light-text);
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.info-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--light-text);
+}
+
+/* Bank Selection Grid */
+.bank-selection h3 {
+    margin-bottom: 16px;
+}
+
+.bank-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.bank-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bank-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-color);
+}
+
+.bank-option img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.bank-option span {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.search-bank {
+    display: flex;
+    margin-top: 16px;
+}
+
+.search-bank input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    font-size: 14px;
+}
+
+.search-bank button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+/* Connection Success Message */
+.connection-success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 2001;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.connection-success-message.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.success-icon {
+    font-size: 60px;
+    color: var(--success-color);
+    margin-bottom: 20px;
+}
+
+.close-success-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-success-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Notification Styles */
+.notifications-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 12px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.notif-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.notif-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.mark-all-read {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.notif-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.notif-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.notif-item.unread {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.notif-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.notif-icon.transaction {
+    background-color: var(--primary-color);
+}
+
+.notif-icon.security {
+    background-color: var(--warning-color);
+}
+
+.notif-icon.alert {
+    background-color: var(--danger-color);
+}
+
+.notif-content {
+    flex: 1;
+}
+
+.notif-content p {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.notif-time {
+    font-size: 12px;
+    color: var(--light-text);
+}
+
+.notif-action {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.notif-action:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+/* User Dropdown */
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 12px;
+    width: 200px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.dropdown-item i {
+    color: var(--primary-color);
+    width: 18px;
+    text-align: center;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 8px 0;
+}
+
+.dropdown-item.logout {
+    color: var(--danger-color);
+}
+
+.dropdown-item.logout i {
+    color: var(--danger-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .account-balance {
+        flex: 2;
+    }
+    
+    .bank-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .accounts-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .account-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .account-icon {
+        margin-bottom: 15px;
+    }
+    
+    .account-info, .account-balance {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .account-action {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin-left: 0;
+    }
+    
+    .account-item {
+        position: relative;
+        padding-right: 50px; /* Make room for the action button */
+    }
+    
+    .account-stats, .account-assets {
+        padding-left: 0;
+    }
+    
+    .linked-account {
+        flex-wrap: wrap;
+    }
+    
+    .linked-status {
+        margin-top: 10px;
+        margin-left: 56px; /* Same as icon width + margin */
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 450px;
+    }
+    
+    .bank-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .asset-item {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .account-assets {
+        flex-wrap: wrap;
+    }
+    
+    .notifications-panel, .user-dropdown {
+        width: 100%;
+        max-width: 100%;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        border-radius: 12px 12px 0 0;
+        max-height: 80vh;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+    
+    .submit-btn {
+        order: 1;
+    }
+    
+    .cancel-btn {
+        order: 2;
+    }
+}

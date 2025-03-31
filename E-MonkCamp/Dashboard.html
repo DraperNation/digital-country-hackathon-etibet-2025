@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Bank Dashboard</title>
+    <link rel="stylesheet" href="Dashboard_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h2><i class="fas fa-university"></i> TDB - Tibet Digital Bank</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="Accounts.html"><i class="fas fa-wallet"></i> Accounts</a>
+                    </li>
+                    <li>
+                        <a href="Transfers.html"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                    </li>
+                    <li>
+                        <a href="Investments.html"><i class="fas fa-coins"></i> Investments</a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="Settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="LoginScreen.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="Maddy (2).jpg" alt="User profile">
+                        <span>John Doe</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="welcome-section">
+                    <h1>Welcome back, Maddy</h1>
+                    <p>Here's a summary of your accounts</p>
+                </div>
+
+                <!-- Account Cards -->
+                <div class="account-cards">
+                    <!-- Traditional Bank Account -->
+                    <div class="account-card bank-account">
+                        <div class="card-header">
+                            <h3>Traditional Savings</h3>
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="balance-info">
+                            <p>Balance</p>
+                            <h2>$24,150.80</h2>
+                        </div>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span>Account No.</span>
+                                <span>****6789</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Interest Rate</span>
+                                <span>2.5% APY</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-btn primary-btn">Transfer</button>
+                            <button class="card-btn secondary-btn">Deposit</button>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Wallet Account -->
+                    <div class="account-card crypto-account">
+                        <div class="card-header">
+                            <h3>Crypto Wallet</h3>
+                            <i class="fab fa-bitcoin"></i>
+                        </div>
+                        <div class="balance-info">
+                            <p>Total Value</p>
+                            <h2>$8,643.25</h2>
+                        </div>
+                        <div class="crypto-holdings">
+                            <div class="crypto-item">
+                                <div class="crypto-icon btc">
+                                    <i class="fab fa-bitcoin"></i>
+                                </div>
+                                <div class="crypto-details">
+                                    <span>Bitcoin</span>
+                                    <span>0.128 BTC</span>
+                                </div>
+                                <div class="crypto-value">
+                                    <span>$5,142.60</span>
+                                    <span class="change positive">+2.4%</span>
+                                </div>
+                            </div>
+                            <div class="crypto-item">
+                                <div class="crypto-icon eth">
+                                    <i class="fab fa-ethereum"></i>
+                                </div>
+                                <div class="crypto-details">
+                                    <span>Ethereum</span>
+                                    <span>1.85 ETH</span>
+                                </div>
+                                <div class="crypto-value">
+                                    <span>$3,500.65</span>
+                                    <span class="change negative">-0.8%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-btn primary-btn">Trade</button>
+                            <button class="card-btn secondary-btn">Send/Receive</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="transactions-section">
+                    <div class="section-header">
+                        <h2>Recent Transactions</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="transactions-table">
+                        <div class="table-header">
+                            <div class="col">Transaction</div>
+                            <div class="col">Date</div>
+                            <div class="col">Amount</div>
+                            <div class="col">Status</div>
+                        </div>
+                        <!-- Transaction 1 -->
+                        <div class="transaction-item">
+                            <div class="col transaction-info">
+                                <div class="transaction-icon deposit">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <p>Salary Deposit</p>
+                                    <span>Employer Inc.</span>
+                                </div>
+                            </div>
+                            <div class="col">Mar 19, 2025</div>
+                            <div class="col amount deposit">+$3,540.00</div>
+                            <div class="col"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                        <!-- Transaction 2 -->
+                        <div class="transaction-item">
+                            <div class="col transaction-info">
+                                <div class="transaction-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <p>Netflix Subscription</p>
+                                    <span>Entertainment</span>
+                                </div>
+                            </div>
+                            <div class="col">Mar 18, 2025</div>
+                            <div class="col amount withdraw">-$15.99</div>
+                            <div class="col"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                        <!-- Transaction 3 -->
+                        <div class="transaction-item">
+                            <div class="col transaction-info">
+                                <div class="transaction-icon crypto">
+                                    <i class="fab fa-ethereum"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <p>Bought Ethereum</p>
+                                    <span>Crypto Exchange</span>
+                                </div>
+                            </div>
+                            <div class="col">Mar 17, 2025</div>
+                            <div class="col amount withdraw">-$500.00</div>
+                            <div class="col"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                        <!-- Transaction 4 -->
+                        <div class="transaction-item">
+                            <div class="col transaction-info">
+                                <div class="transaction-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <p>Grocery Shopping</p>
+                                    <span>Whole Foods Market</span>
+                                </div>
+                            </div>
+                            <div class="col">Mar 15, 2025</div>
+                            <div class="col amount withdraw">-$86.24</div>
+                            <div class="col"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                        <!-- Transaction 5 -->
+                        <div class="transaction-item">
+                            <div class="col transaction-info">
+                                <div class="transaction-icon withdraw">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <p>Transfer to Savings</p>
+                                    <span>Internal Transfer</span>
+                                </div>
+                            </div>
+                            <div class="col">Mar 12, 2025</div>
+                            <div class="col amount withdraw">-$1,000.00</div>
+                            <div class="col"><span class="status-badge completed">Completed</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

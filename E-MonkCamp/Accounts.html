@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts - Web3 Bank Dashboard</title>
+    <link rel="stylesheet" href="Dashboard_style.css">
+    <link rel="stylesheet" href="accounts_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h2><i class="fas fa-university"></i> TDB - Tibet Digital Bank</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="Accounts.html"><i class="fas fa-wallet"></i> Accounts</a>
+                    </li>
+                    <li>
+                        <a href="Transfers.html"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                    </li>
+                    <li>
+                        <a href="Investments.html"><i class="fas fa-coins"></i> Investments</a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="Settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="LoginScreen.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search accounts...">
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="Maddy (2).jpg" alt="User profile">
+                        <span>John Doe</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Accounts Content -->
+            <div class="dashboard-content">
+                <div class="accounts-header">
+                    <div>
+                        <h1>Your Accounts</h1>
+                        <p>Manage all your financial accounts in one place</p>
+                    </div>
+                    <div class="accounts-header-button">
+                        <button class="add-account-btn">
+                            <i class="fas fa-university"></i> Add New Bank Account
+                        </button>
+                        <button class="add-account-btn">
+                            <i class="fab fa-bitcoin"></i> Add New Wallet
+                        </button>
+                    </div> 
+                </div>
+
+                <!-- Account Groups -->
+                <div class="account-groups">
+                    <!-- Traditional Banking Group -->
+                    <div class="account-group">
+                        <div class="group-header">
+                            <h2><i class="fas fa-university"></i> Traditional Banking</h2>
+                            <span class="group-total">$28,530.80</span>
+                        </div>
+                        
+                        <!-- <div class="accounts-list">
+                             // !Checking Account
+                            <div class="account-item">
+                                <div class="account-icon checking">
+                                    <i class="fas fa-money-check-alt"></i>
+                                </div>
+                                <div class="account-details">
+                                    <div class="account-info">
+                                        <h3>Checking Account</h3>
+                                        <p>Account No. ****4321</p>
+                                    </div>
+                                    <div class="account-balance">
+                                        <h3>$4,380.00</h3>
+                                        <p>Available</p>
+                                    </div>
+                                    <div class="account-action">
+                                        <button class="account-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                                    </div>
+                                </div>
+                                <div class="account-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Interest Rate</span>
+                                        <span class="stat-value">0.5% APY</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Transaction</span>
+                                        <span class="stat-value">Mar 19, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Savings Account -->
+                            <div class="account-item">
+                                <div class="account-icon savings">
+                                    <i class="fas fa-piggy-bank"></i>
+                                </div>
+                                <div class="account-details">
+                                    <div class="account-info">
+                                        <h3>Savings Account</h3>
+                                        <p>Account No. ****6789</p>
+                                    </div>
+                                    <div class="account-balance">
+                                        <h3>$24,150.80</h3>
+                                        <p>Available</p>
+                                    </div>
+                                    <div class="account-action">
+                                        <button class="account-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                                    </div>
+                                </div>
+                                <div class="account-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Interest Rate</span>
+                                        <span class="stat-value">2.5% APY</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Transaction</span>
+                                        <span class="stat-value">Mar 12, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Crypto Wallets Group -->
+                    <div class="account-group">
+                        <div class="group-header">
+                            <h2><i class="fas fa-coins"></i> Crypto Wallets</h2>
+                            <span class="group-total">$8,643.25</span>
+                        </div>
+                        
+                        <div class="accounts-list">
+                            <!-- Main Crypto Wallet -->
+                            <div class="account-item">
+                                <div class="account-icon crypto">
+                                    <i class="fab fa-bitcoin"></i>
+                                </div>
+                                <div class="account-details">
+                                    <div class="account-info">
+                                        <h3>Main Crypto Wallet</h3>
+                                        <p>0x7Fb...3A92</p>
+                                    </div>
+                                    <div class="account-balance">
+                                        <h3>$8,643.25</h3>
+                                        <p class="change positive">+1.8% today</p>
+                                    </div>
+                                    <div class="account-action">
+                                        <button class="account-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                                    </div>
+                                </div>
+                                <div class="account-assets">
+                                    <div class="asset-item">
+                                        <div class="asset-icon btc">
+                                            <i class="fab fa-bitcoin"></i>
+                                        </div>
+                                        <div class="asset-details">
+                                            <span>0.128 BTC</span>
+                                            <span>$5,142.60</span>
+                                        </div>
+                                    </div>
+                                    <div class="asset-item">
+                                        <div class="asset-icon eth">
+                                            <i class="fab fa-ethereum"></i>
+                                        </div>
+                                        <div class="asset-details">
+                                            <span>1.85 ETH</span>
+                                            <span>$3,500.65</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Cards Group -->
+                    <div class="account-group">
+                        <div class="group-header">
+                            <h2><i class="fas fa-credit-card"></i> Credit Cards</h2>
+                            <span class="group-total">$1,240.75 used</span>
+                        </div>
+                        
+                        <div class="accounts-list">
+                            <!-- Main Credit Card -->
+                            <div class="account-item">
+                                <div class="account-icon credit">
+                                    <i class="far fa-credit-card"></i>
+                                </div>
+                                <div class="account-details">
+                                    <div class="account-info">
+                                        <h3>Platinum Rewards Card</h3>
+                                        <p>Card No. ****5678</p>
+                                    </div>
+                                    <div class="account-balance">
+                                        <h3>$1,240.75</h3>
+                                        <p>Current Balance</p>
+                                    </div>
+                                    <div class="account-action">
+                                        <button class="account-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                                    </div>
+                                </div>
+                                <div class="account-stats credit-stats">
+                                    <div class="credit-limit-bar">
+                                        <div class="credit-used" style="width: 25%;"></div>
+                                    </div>
+                                    <div class="credit-info">
+                                        <span>$1,240.75 used</span>
+                                        <span>$5,000 limit</span>
+                                    </div>
+                                    <div class="credit-due">
+                                        <span>Payment Due: Apr 15, 2025</span>
+                                        <span class="min-payment">Min Payment: $35.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Linked Accounts Section -->
+                <div class="linked-accounts-section">
+                    <div class="section-header">
+                        <h2>Linked External Accounts</h2>
+                        <button class="link-account-btn"><i class="fas fa-link"></i> Link New Account</button>
+                    </div>
+                    
+                    <div class="linked-accounts-list">
+                        <div class="linked-account">
+                            <div class="linked-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="linked-details">
+                                <h3>Chase Bank</h3>
+                                <p>Checking ****8765</p>
+                            </div>
+                            <div class="linked-status">
+                                <span class="status-connected">Connected</span>
+                            </div>
+                            <div class="linked-action">
+                                <button class="linked-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="linked-account">
+                            <div class="linked-icon paypal">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="linked-details">
+                                <h3>PayPal</h3>
+                                <p>john.doe@example.com</p>
+                            </div>
+                            <div class="linked-status">
+                                <span class="status-connected">Connected</span>
+                            </div>
+                            <div class="linked-action">
+                                <button class="linked-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="accounts.js"></script>
+</body>
+</html>

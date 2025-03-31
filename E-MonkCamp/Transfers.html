@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Transfers</title>
+    <link rel="stylesheet" href="transactions_style.css">
+    <link rel="stylesheet" href="Dashboard_style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #487eff;
+            --primary-dark: #3865d6;
+            --card-bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-hover: #f2f3f5;
+            --bg-active: #e6f0ff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-tertiary: #888888;
+            --border-color: #e0e0e0;
+            --input-bg: #f8f9fa;
+        }
+
+        /* Dark mode can be added with a class or media query */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <h2><i class="fas fa-university"></i> TDB - Tibet Digital Bank</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li >
+                        <a href="Dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="Accounts.html"><i class="fas fa-wallet"></i> Accounts</a>
+                    </li>
+                    <li class="active">
+                        <a href="Transfers.html"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                    </li>
+                    <li>
+                        <a href="Investments.html"><i class="fas fa-coins"></i> Investments</a>
+                    </li>
+                    <li>
+                        <a href="Analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="Settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="LoginScreen.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="Maddy (2).jpg" alt="User profile">
+                        <span>John Doe</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+    
+            <!-- Main Content -->
+            <div class="container">
+                <!-- Transaction Stats -->
+                <div class="transaction-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon income">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Income</h3>
+                            <div class="stat-value">$12,560.90</div>
+                            <div class="stat-period">This month</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon expense">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Expenses</h3>
+                            <div class="stat-value">$8,420.30</div>
+                            <div class="stat-period">This month</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Pending</h3>
+                            <div class="stat-value">$1,850.00</div>
+                            <div class="stat-period">5 transactions</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon scheduled">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Scheduled</h3>
+                            <div class="stat-value">$3,200.00</div>
+                            <div class="stat-period">3 transfers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Header -->
+                <div class="transactions-header">
+                    <div>
+                        <h1>Transfers</h1>
+                        <p>Manage your transfers and transactions</p>
+                    </div>
+                    <div class="transactions-header-buttons">
+                        <button id="new-transfer-btn" class="new-transfer-btn">
+                            <i class="fas fa-plus"></i> New Transfer
+                        </button>
+                        <button class="schedule-btn">
+                            <i class="fas fa-calendar"></i> Schedule
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transaction Filters -->
+                <div class="transaction-filters">
+                    <div class="filter-group">
+                        <label for="account-filter">Account</label>
+                        <select id="account-filter" class="filter-select">
+                            <option value="all">All Accounts</option>
+                            <option value="checking">Checking Account</option>
+                            <option value="savings">Savings Account</option>
+                            <option value="crypto">Crypto Wallet</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Pending</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="date-filter">Date Range</label>
+                        <select id="date-filter" class="filter-select">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="quarter">Last 3 Months</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Amount Range</label>
+                        <div class="amount-filter-inputs">
+                            <input type="number" id="min-amount" class="amount-input" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="max-amount" class="amount-input" placeholder="Max">
+                        </div>
+                    </div>
+                    <button id="filter-transactions" class="filter-btn">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                    <button id="clear-filters" class="filter-btn">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="list">
+                        <i class="fas fa-list"></i> List View
+                    </button>
+                    <button class="view-btn" data-view="grid">
+                        <i class="fas fa-th-large"></i> Grid View
+                    </button>
+                </div>
+
+                <!-- List View -->
+                <div id="list-view" class="transactions-list view active">
+                    <div class="table-header">
+                        <div>Transaction</div>
+                        <div>Account</div>
+                        <div>Date</div>
+                        <div>Amount</div>
+                        <div>Status</div>
+                        <div></div>
+                    </div>
+                    <!-- Transaction Items -->
+                    <div class="transaction-item">
+                        <div class="col transaction-info">
+                            <div class="transaction-icon transfer">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <p class="transaction-name">Transfer to Savings</p>
+                                <span class="transaction-category">To: Savings Account</span>
+                            </div>
+                        </div>
+                        <div class="col account-info">
+                            <span>Checking Account</span>
+                        </div>
+                        <div class="col">Mar 19, 2025</div>
+                        <div class="col amount withdraw">-$500.00</div>
+                        <div class="col"><span class="status-badge completed">Completed</span></div>
+                        <div class="col action-col">
+                            <button class="transaction-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="col transaction-info">
+                            <div class="transaction-icon deposit">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <p class="transaction-name">Salary Deposit</p>
+                                <span class="transaction-category">Income: Salary</span>
+                            </div>
+                        </div>
+                        <div class="col account-info">
+                            <span>Checking Account</span>
+                        </div>
+                        <div class="col">Mar 15, 2025</div>
+                        <div class="col amount deposit">+$2,850.00</div>
+                        <div class="col"><span class="status-badge completed">Completed</span></div>
+                        <div class="col action-col">
+                            <button class="transaction-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="col transaction-info">
+                            <div class="transaction-icon withdraw">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <p class="transaction-name">Rent Payment</p>
+                                <span class="transaction-category">Expense: Housing</span>
+                            </div>
+                        </div>
+                        <div class="col account-info">
+                            <span>Checking Account</span>
+                        </div>
+                        <div class="col">Mar 12, 2025</div>
+                        <div class="col amount withdraw">-$1,200.00</div>
+                        <div class="col"><span class="status-badge completed">Completed</span></div>
+                        <div class="col action-col">
+                            <button class="transaction-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="col transaction-info">
+                            <div class="transaction-icon crypto">
+                                <i class="fab fa-bitcoin"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <p class="transaction-name">BTC Purchase</p>
+                                <span class="transaction-category">Crypto: Bitcoin</span>
+                            </div>
+                        </div>
+                        <div class="col account-info">
+                            <span>Crypto Wallet</span>
+                        </div>
+                        <div class="col">Mar 10, 2025</div>
+                        <div class="col amount withdraw">-$750.00</div>
+                        <div class="col"><span class="status-badge pending">Pending</span></div>
+                        <div class="col action-col">
+                            <button class="transaction-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="col transaction-info">
+                            <div class="transaction-icon transfer">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <p class="transaction-name">Transfer to External Account</p>
+                                <span class="transaction-category">To: External Account</span>
+                            </div>
+                        </div>
+                        <div class="col account-info">
+                            <span>Savings Account</span>
+                        </div>
+                        <div class="col">Mar 5, 2025</div>
+                        <div class="col amount withdraw">-$1,000.00</div>
+                        <div class="col"><span class="status-badge scheduled">Scheduled</span></div>
+                        <div class="col action-col">
+                            <button class="transaction-menu-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid View -->
+                <div id="grid-view" class="transactions-grid view"></div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled><i class="fas fa-angle-left"></i></button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <span class="pagination-ellipsis">...</span>
+                    <button class="pagination-btn">8</button>
+                    <button class="pagination-btn"><i class="fas fa-angle-right"></i></button>
+                </div>
+
+                <!-- Transfer Modal -->
+                <div id="transfer-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>New Transfer</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="transfer-form">
+                                <div class="form-group">
+                                    <label for="from-account">From Account</label>
+                                    <select id="from-account" required>
+                                        <option value="">Select account</option>
+                                        <option value="checking">Checking Account</option>
+                                        <option value="savings">Savings Account</option>
+                                        <option value="crypto">Crypto Wallet</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="to-account">To Account</label>
+                                    <select id="to-account" required>
+                                        <option value="">Select account</option>
+                                        <option value="checking">Checking Account</option>
+                                        <option value="savings">Savings Account</option>
+                                        <option value="crypto">Crypto Wallet</option>
+                                        <option value="external">External Account</option>
+                                    </select>
+                                </div>
+                                <div id="external-account-group" class="form-group" style="display: none;">
+                                    <label for="external-account">External Account Details</label>
+                                    <input type="text" id="external-account" placeholder="Account number or identifier">
+                                </div>
+                                <div class="form-group">
+                                    <label for="transfer-amount">Amount</label>
+                                    <div class="amount-input-wrapper">
+                                        <span class="currency-symbol">$</span>
+                                        <input type="number" id="transfer-amount" placeholder="0.00" step="0.01" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transfer-description">Description (Optional)</label>
+                                    <input type="text" id="transfer-description" placeholder="Enter a description">
+                                </div>
+                                <div class="form-group">
+                                    <label for="transfer-date">Transfer Date</label>
+                                    <input type="date" id="transfer-date" required>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="cancel-btn">Cancel</button>
+                                    <button type="submit" class="submit-btn">Transfer Funds</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="transactions.js"></script>
+</body>
+</html>
